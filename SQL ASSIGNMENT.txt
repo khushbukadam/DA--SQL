@@ -1,0 +1,106 @@
+Module 4) Working with Database using SQL 
+
+Assignment :-
+
+
+
+For this assignment, you will finish building the contact management database for
+MarketCo
+
+
+
+
+1) Statement to create the Contact table 
+
+Ans:-
+        
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| da                 |
+| information_schema |
+| mydb               |
+| mysql              |
+| ndb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_mydb |
++----------------+
+| student        |
+| totaldata      |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> CREATE TABLE Contact(
+    -> ContactID INT,
+    -> CompanyID INT,
+    -> FirstName VARCHAR(45),
+    ->  LastName  VARCHAR(45),
+    -> Street  VARCHAR(45),
+    ->  City VARCHAR(45),
+    -> State VARCHAR(2),
+    -> Zip  VARCHAR(10),
+    -> IsMain boolean,
+    -> Phone VARCHAR(12),
+    -> Email VARCHAR(45)
+    -> );
+Query OK, 0 rows affected (0.33 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_mydb |
++----------------+
+| contact        |
+| student        |
+| totaldata      |
++----------------+
+3 rows in set (0.00 sec)
+
+
+
+
+2)Statement to create the Employee table 
+
+ANS:- mysql> CREATE TABLE Employee(
+    -> EmployeeID INT,
+    -> LastName  VARCHAR(45),
+    -> Salary  DECIMAL(10,2),
+    -> HireDate  DATE,
+    -> JobTitle  VARCHAR(25),
+    -> Email VARCHAR(45),
+    -> Phone VARCHAR(12),
+    -> PRIMARY KEY(EmployeeID)
+    -> );
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_mydb |
++----------------+
+| contact        |
+| employee       |
+| student        |
+| totaldata      |
++----------------+
+
+
+
+
+3)Statement to create the ContactEmployee table
+HINT: Use DATE as the datatype for ContactDate. It allows you to store the
+date in this format: YYYY-MM-DD (i.e., ‘2014-03-12’ for March 12, 2014). 
+
+ANS:-
+
+
+
