@@ -1,0 +1,791 @@
+1) Statement to create the Contact table
+
+ANS:-
+        
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| da                 |
+| information_schema |
+| mydb               |
+| mysql              |
+| ndb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> CREATE TABLE Contact(
+    -> ContactID INT,
+    -> CompanyID INT,
+    -> FirstName VARCHAR(45)NOT NULL,
+    -> LastName  VARCHAR(45)NOT NULL,
+    -> Street  VARCHAR(45)NOT NULL,
+    -> City VARCHAR(45)NOT NULL,
+    -> State VARCHAR(2)NOT NULL,
+    -> Zip VARCHAR(10)NOT NULL,
+    -> IsMain VARCHAR(1)NOT NULL,
+    -> Email VARCHAR(45)NOT NULL,
+    -> Phone VARCHAR(12)NOT NULL
+    -> );
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> describe Contact;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| ContactID | int         | YES  |     | NULL    |       |
+| CompanyID | int         | YES  |     | NULL    |       |
+| FirstName | varchar(45) | NO   |     | NULL    |       |
+| LastName  | varchar(45) | NO   |     | NULL    |       |
+| Street    | varchar(45) | NO   |     | NULL    |       |
+| City      | varchar(45) | NO   |     | NULL    |       |
+| State     | varchar(2)  | NO   |     | NULL    |       |
+| Zip       | varchar(10) | NO   |     | NULL    |       |
+| IsMain    | varchar(1)  | NO   |     | NULL    |       |
+| Email     | varchar(45) | NO   |     | NULL    |       |
+| Phone     | varchar(12) | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_mydb |
++----------------+
+| contact        |
++----------------+
+1 row in set (0.00 sec)
+
+
+
+2) Statement to create the Employee table 
+ANS:-
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| da                 |
+| information_schema |
+| mydb               |
+| mysql              |
+| ndb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+       
+ mysql> CREATE TABLE Employee(
+    -> FirstName VARCHAR(45)NOT NULL,
+    -> LastName VARCHAR(45)NOT NULL,
+    -> Salary DECIMAL(10,2)NOT NULL,
+    -> HireDate  DATE,
+    -> JobTitle VARCHAR(25)NOT NULL,
+    -> Email VARCHAR(45)NOT NULL,
+    -> Phone VARCHAR(12)NOT NULL
+    -> );
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> describe Employee;
++-----------+---------------+------+-----+---------+-------+
+| Field     | Type          | Null | Key | Default | Extra |
++-----------+---------------+------+-----+---------+-------+
+| FirstName | varchar(45)   | NO   |     | NULL    |       |
+| LastName  | varchar(45)   | NO   |     | NULL    |       |
+| Salary    | decimal(10,2) | NO   |     | NULL    |       |
+| HireDate  | date          | YES  |     | NULL    |       |
+| JobTitle  | varchar(25)   | NO   |     | NULL    |       |
+| Email     | varchar(45)   | NO   |     | NULL    |       |
+| Phone     | varchar(12)   | NO   |     | NULL    |       |
++-----------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_mydb |
++----------------+
+| contact        |
+| employee       |
++----------------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+3) Statement to create the ContactEmployee table
+HINT: Use DATE as the datatype for ContactDate. It allows you to store the
+date in this format: YYYY-MM-DD (i.e., ‘2014-03-12’ for March 12, 2014)
+
+ANS:-
+
+   
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| da                 |
+| information_schema |
+| mydb               |
+| mysql              |
+| ndb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> CREATE TABLE ContactEmployee(
+    -> ContactEmployeeID INT,
+    -> ContactID  INT,
+    -> EmployeeID INT,
+    -> ContactDate date
+    -> Description VARCHAR(100) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> describe ContactEmployee;
++-------------------+--------------+------+-----+---------+-------+
+| Field             | Type         | Null | Key | Default | Extra |
++-------------------+--------------+------+-----+---------+-------+
+| ContactEmployeeID | int          | YES  |     | NULL    |       |
+| ContactID         | int          | YES  |     | NULL    |       |
+| EmployeeID        | int          | YES  |     | NULL    |       |
+| ContactDate       | date         | NO   |     | NULL    |       |
+| Description       | varchar(100) | NO   |     | NULL    |       |
++-------------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_mydb  |
++-----------------+
+| contact         |
+| contactemployee |
+| employee        |
++-----------------+
+3 rows in set (0.00 sec)
+
+mysql> create table contactemployee(emp_id int,emp_name char(30),emp_dob date);
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> insert into contactemployee values(101,"khushbu","1999-03-15");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into contactemployee values(102,"vaibhav",1999-07-09");
+    ">
+    "> ^C
+mysql> insert into contactemployee values(102,"vaibhav","1999-07-09");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into contactemployee values(103,"zalak","2003-09-09");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into contactemployee values(104,"Dhruvi","2000-10-19");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select *from contactemployee;
++--------+----------+------------+
+| emp_id | emp_name | emp_dob    |
++--------+----------+------------+
+|    101 | khushbu  | 1999-03-15 |
+|    102 | vaibhav  | 1999-07-09 |
+|    103 | zalak    | 2003-09-09 |
+|    104 | Dhruvi   | 2000-10-19 |
++--------+----------+------------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+4) In the Employee table, the statement that changes Lesley Bland’s phone number
+to 215-555-8800 
+
+ANS:-
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| da                 |
+| information_schema |
+| mydb               |
+| mysql              |
+| ndb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+       
+ mysql> CREATE TABLE Employee(
+    -> FirstName VARCHAR(45)NOT NULL,
+    -> LastName VARCHAR(45)NOT NULL,
+    -> Salary DECIMAL(10,2)NOT NULL,
+    -> HireDate  DATE,
+    -> JobTitle VARCHAR(25)NOT NULL,
+    -> Email VARCHAR(45)NOT NULL,
+    -> Phone VARCHAR(12)NOT NULL
+    -> );
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> describe Employee;
++-----------+---------------+------+-----+---------+-------+
+| Field     | Type          | Null | Key | Default | Extra |
++-----------+---------------+------+-----+---------+-------+
+| FirstName | varchar(45)   | NO   |     | NULL    |       |
+| LastName  | varchar(45)   | NO   |     | NULL    |       |
+| Salary    | decimal(10,2) | NO   |     | NULL    |       |
+| HireDate  | date          | YES  |     | NULL    |       |
+| JobTitle  | varchar(25)   | NO   |     | NULL    |       |
+| Email     | varchar(45)   | NO   |     | NULL    |       |
+| Phone     | varchar(12)   | NO   |     | NULL    |       |
++-----------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+ mysql> UPDATE employee
+    -> SET PhoneNumber = '215-555-8800'
+    -> WHERE FirstName = 'Lesley' AND LastName = 'Bland';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------------+-----------+----------+-------------------------+--------------+------------+-------------------+--------------+----------+
+| EmployeeID | FirstName | LastName | Email                   | PhoneNumber  | HireDate   | JobTitle          | DepartmentID | Salary   |
++------------+-----------+----------+-------------------------+--------------+------------+-------------------+--------------+----------+
+|          1 | John      | Doe      | john.doe@example.com    | NULL         | 2023-04-10 | Software Engineer |            1 | 75000.00 |
+|          2 | Jane      | Smith    | jane.smith@example.com  | NULL         | 2022-11-01 | HR Manager        |            2 | 65000.00 |
+|          3 | Alice     | Brown    | alice.brown@example.com | NULL         | 2021-06-20 | Marketing Lead    |            3 | 72000.00 |
+|          4 | Lesley    | Bland    | NULL                    | 215-555-8800 | 2025-06-08 | Sales Associate   |         NULL |     NULL |
++------------+-----------+----------+-------------------------+--------------+------------+-------------------+--------------+----------+
+4 rows in set (0.00 sec)
+
+
+
+
+5) In the Company table, the statement that changes the name of “Urban
+Outfitters, Inc.” to “Urban Outfitters” . 
+ANS:-mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| contactdate        |
+| da                 |
+| information_schema |
+| mydb               |
+| mysql              |
+| ndb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (0.23 sec)
+
+mysql> use mydb;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_mydb  |
++-----------------+
+| company         |
+| employee        |
+| employees       |
+| staff           |
+| staff_contact   |
+| student_contact |
+| students        |
++-----------------+
+7 rows in set (0.29 sec)
+
+mysql> describe Company;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| CompanyID   | int         | YES  |     | NULL    |       |
+| CompanyName | varchar(45) | NO   |     | NULL    |       |
+| Street      | varchar(45) | NO   |     | NULL    |       |
+| City        | varchar(45) | NO   |     | NULL    |       |
+| State       | varchar(2)  | NO   |     | NULL    |       |
+| Zip         | varchar(10) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.14 sec)
+
+INSERT INTO Company (CompanyID, CompanyName, Street, City, State, Zip)
+VALUES (1, 'OpenAI Inc.', '575 Market st', 'San Francisco', 'CA', '94105');
+
+mysql> select * from Company;
++-----------+-------------+---------------+---------------+-------+-------+
+| CompanyID | CompanyName | Street        | City          | State | Zip   |
++-----------+-------------+---------------+---------------+-------+-------+
+|         1 | OpenAI Inc  | 575 Market St | San Francisco | CA    | 94105 |
++-----------+-------------+---------------+---------------+-------+-------+
+1 row in set (0.08 sec)
+
+mysql> UPDATE Company
+    -> SET CompanyName ='Urban Outfitters INC'
+    -> WHERE CompanyName ='openAI Inc';
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from Company;
++-----------+----------------------+---------------+---------------+-------+-------+
+| CompanyID | CompanyName          | Street        | City          | State | Zip   |
++-----------+----------------------+---------------+---------------+-------+-------+
+|         1 | Urban Outfitters INC | 575 Market St | San Francisco | CA    | 94105 |
++-----------+----------------------+---------------+---------------+-------+-------+
+1 row in set (0.00 sec)
+
+
+
+
+
+6) In ContactEmployee table, the statement that removes Dianne Connor’s contact
+event with Jack Lee (one statement).
+HINT: Use the primary key of the ContactEmployee table to specify the correct record to remove.
+  
+
+  
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| da                 |
+| information_schema |
+| mydb               |
+| mysql              |
+| ndb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> show tables;
++-----------------+
+| Tables_in_mydb  |
++-----------------+
+| company         |
+| employee        |
+| employees       |
+| staff           |
+| staff_contact   |
+| student_contact |
+| students        |
++-----------------+
+7 rows in set (0.00 sec)
+
+
+mysql> CREATE TABLE ContactEmployee(
+    -> ContactEmployeeID INT,
+    -> ContactID INT,
+    -> EmployeeID INT,
+    -> EmployeeName VARCHAR(45),
+    -> ContactDate Date,
+    -> Description VARCHAR(100)NULL
+    -> );
+Query OK, 0 rows affected (0.24 sec)
+
+mysql> describe ContactEmployee;
++-------------------+--------------+------+-----+---------+-------+
+| Field             | Type         | Null | Key | Default | Extra |
++-------------------+--------------+------+-----+---------+-------+
+| ContactEmployeeID | int          | YES  |     | NULL    |       |
+| ContactID         | int          | YES  |     | NULL    |       |
+| EmployeeID        | int          | YES  |     | NULL    |       |
+| EmployeeName      | varchar(45)  | YES  |     | NULL    |       |
+| ContactDate       | date         | YES  |     | NULL    |       |
+| Description       | varchar(100) | YES  |     | NULL    |       |
++-------------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO ContactEmployee (ContactEmployeeID, ContactID, EmployeeID, EmployeeName, ContactDate, Description)
+    -> VALUES (1, 1, 2, 'Dianne Connor', '2024-06-10', 'Meeting with Jack Lee');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO ContactEmployee (ContactEmployeeID, ContactID, EmployeeID, EmployeeName, ContactDate, Description)
+    -> VALUES(2,2,2,'Lesly Balnd','2022-07-07','compnay policy');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from ContactEmployee;
++-------------------+-----------+------------+---------------+-------------+-----------------------+
+| ContactEmployeeID | ContactID | EmployeeID | EmployeeName  | ContactDate | Description           |
++-------------------+-----------+------------+---------------+-------------+-----------------------+
+|                 1 |         1 |          2 | Dianne Connor | 2024-06-10  | Meeting with Jack Lee |
+|                 2 |         2 |          2 | Lesly Balnd   | 2022-07-07  | compnay policy        |
++-------------------+-----------+------------+---------------+-------------+-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> DELETE FROM ContactEmployee
+    -> WHERE ContactEmployeeID = 1;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> DELETE FROM ContactEmployee
+    -> WHERE EmployeeName = 'Dianne Connor' AND ContactID = 1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from ContactEmployee;
++-------------------+-----------+------------+--------------+-------------+----------------+
+| ContactEmployeeID | ContactID | EmployeeID | EmployeeName | ContactDate | Description    |
++-------------------+-----------+------------+--------------+-------------+----------------+
+|                 2 |         2 |          2 | Lesly Balnd  | 2022-07-07  | compnay policy |
++-------------------+-----------+------------+--------------+-------------+----------------+
+1 row in set (0.00 sec)
+
+
+
+
+7) Write the SQL SELECT query that displays the names of the employees that
+have contacted Toll Brothers (one statement). Run the SQL SELECT query in
+MySQL Workbench. Copy the results below as well
+ANS:-
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| contactdate        |
+| da                 |
+| information_schema |
+| mydb               |
+| mysql              |
+| ndb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (3.47 sec)
+
+mysql> use mydb;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_mydb  |
++-----------------+
+| company         |
+| contactemployee |
+| contacts        |
+| employee        |
+| employeees      |
+| employees       |
+| staff           |
+| staff_contact   |
+| student_contact |
+| students        |
++-----------------+
+10 rows in set (6.00 sec)
+
+CREATE TABLE Employeees (
+    employee_id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+INSERT INTO Employees (employee_id, name) VALUES
+(1, 'Alice '),
+(2, 'Bob '),
+(3, 'Charlie ');
+
+mysql> select *from employeees;
++--------------+---------+
+| Employeee_id | name    |
++--------------+---------+
+|            1 | Alice   |
+|            2 | Bob     |
+|            3 | Charlie |
++--------------+---------+
+3 rows in set (0.00 sec)
+
+
+CREATE TABLE Contacts (
+    contact_id INT PRIMARY KEY,
+    employee_id INT,
+    company_name VARCHAR(100),
+    FOREIGN KEY (employee_id) REFERENCES Employees(employee_id)
+);
+
+
+INSERT INTO Contacts (contact_id, employee_id, company_name) VALUES
+(1, 1, 'Toll Brothers' ),
+(2, 2, 'Google'),
+(3, 3, 'Toll Brothers'),
+
+mysql> select * from contacts;
++------------+-------------+---------------+
+| contact_id | employee_id | company_name  |
++------------+-------------+---------------+
+|        101 |           1 | Toll Brothers |
+|        102 |           2 | Google        |
+|        103 |           3 | Toll Brothers |
++------------+-------------+---------------+
+3 rows in set (0.00 sec)
+
+SELECT DISTINCT e.name
+FROM Employees e
+JOIN Contacts c ON e.employee_id = c.employee_id
+WHERE c.company_name = 'Toll Brothers';
+
++--------------+
+| name         |
++--------------+
+| Alice        |
+| Charlie      |
++--------------+
+2 rows in set (0.06 sec)
+
+
+         
+8) What is the significance of “%” and “_” operators in the LIKE statement?
+ANS:-
+    In the LIKE statement, the "%" and "" operators are wildcards used for pattern matching within strings. "%" represents zero, one, or multiple     characters, while "" represents exactly one character
+
+->Significance of "%" (Percent Sign):
+
+Matches Zero, One, or Multiple Characters:-
+
+The "%" wildcard can match any sequence of characters, including an empty sequence (zero characters), a single character, or multiple characters.
+Used for Flexible Searches:
+It's commonly used when you want to find strings that contain a specific substring, regardless of what comes before or after that substring.
+
+Examples:
+LIKE 'a%': Matches strings starting with "a".
+LIKE '%a%': Matches strings containing "a" anywhere.
+LIKE '%a' : Matches strings ending with "a".
+ SELECT * FROM employees WHERE name LIKE 'A%';
+SELECT * FROM users WHERE username LIKE '_at';
+
+
+Significance of "_" (Underscore):
+Matches Exactly One Character: The "_" wildcard represents a single, arbitrary character.
+Used for Specific Length Matching: It's used when you need to match a pattern with a specific number of characters in a particular position.
+
+Examples:
+LIKE 'a_b_c': Matches strings that are exactly 5 characters long and start with "abc", with a character between each letter.
+LIKE 'a__b_c_d': Matches strings that are exactly 7 characters long and start with "abc", with two characters between "b" and "c", and one character after "c". 
+SELECT * FROM messages WHERE text LIKE '%\%%' ESCAPE '\';
+
+
+
+
+
+9) Explain normalization in the context of databases. 
+ANS:-
+     Normalization in the context of databases is the process of organizing data to reduce redundancy and improve data integrity. It involves structuring a relational database in a way that dependencies are properly enforced by database schema design.
+
+Key Objectives of Normalization:
+Eliminate redundant data – avoid storing the same data in multiple places.
+
+Ensure data dependencies make sense – only store related data in a table.
+
+Promote data integrity and consistency – reduce the likelihood of anomalies during data operations like insert, update, or delete.
+
+Normal Forms:
+Normalization is typically done in stages called normal forms, each with specific requirements:
+
+First Normal Form (1NF):
+
+Ensure each column contains only atomic (indivisible) values.
+
+Remove repeating groups or arrays.
+
+Second Normal Form (2NF):
+
+Be in 1NF.
+
+Remove partial dependencies – all non-key attributes must depend on the whole primary key (used when there's a composite primary key).
+
+Third Normal Form (3NF):
+
+Be in 2NF.
+
+Remove transitive dependencies – non-key attributes should not depend on other non-key attributes.
+
+Boyce-Codd Normal Form (BCNF):
+
+A stricter version of 3NF.
+
+Every determinant must be a candidate key.
+
+Additional forms like 4NF and 5NF address more complex relationships like multivalued dependencies and join dependencies, but they are used less frequently.
+
+Example:
+Suppose we have a table:
+
+StudentID	StudentName	Course	Instructor
+1	Alice	Math	Dr. Smith
+1	Alice	Physics	Dr. Lee
+
+This table is not normalized. It contains redundant data (StudentName repeated) and might lead to update anomalies. Normalizing it would involve creating separate tables for students, courses, and enrollments.
+
+Benefits of Normalization:
+Saves storage space.
+
+Makes the database easier to maintain and update.
+
+Helps ensure data consistency and accuracy.
+
+
+
+
+
+
+10) What does a join in MySQL mean? 
+ANS:-
+      In MySQL, a JOIN is a SQL operation used to combine rows from two or more tables based on a related column between them—usually a foreign key relationship.
+ -> Why Use a JOIN?
+Because data in relational databases is often split into multiple tables to avoid redundancy, JOINs are essential for querying and assembling related data spread across those tables.
+
+
+->Types of JOINs in MySQL
+
+
+1)INNER JOIN
+
+ Returns only the rows that have matching values in both tables.
+ Most common type of join.
+
+EX-SELECT *
+FROM orders
+INNER JOIN customers ON orders.customer_id = customers.id;
+
+2)LEFT JOIN (or LEFT OUTER JOIN)
+
+
+Returns all rows from the left table and the matched rows from the right table. If there’s no match, NULLs are used.
+
+
+SELECT *
+FROM customers
+LEFT JOIN orders ON customers.id = orders.customer_id;
+
+3)RIGHT JOIN (or RIGHT OUTER JOIN)
+
+  Returns all rows from the right table and the matched rows from the left table. If there's no match, NULLs are returned for columns from the left table.
+
+SELECT *
+FROM employees
+RIGHT JOIN departments ON employees.dept_id = departments.id;
+
+4)FULL JOIN (or FULL OUTER JOIN) (Not natively supported in MySQL):-
+ANS:-
+     Simulates a combination of LEFT and RIGHT JOINs. You’d use a UNION to get the effect:
+
+SELECT *
+FROM employees
+LEFT JOIN departments ON employees.dept_id = departments.id
+UNION
+SELECT *
+FROM employees
+RIGHT JOIN departments ON employees.dept_id = departments.id;
+
+5)CROSS JOIN:-
+ANS:-
+     Returns the Cartesian product of both tables — every row from the first table is combined with every row from the second table.
+
+SELECT *
+FROM employees
+CROSS JOIN departments;
+
+
+
+
+11)What do you understand about DDL, DCL, and DML in MySQL?
+ANS:-
+       1. DDL (Data Definition Language)
+       2. DML (Data Manipulation Language)
+       3. DCL (Data Control Language)
+
+ 1. DDL (Data Definition Language):-
+       
+          Used to define or modify the structure of database objects like tables, schemas, indexes, etc.
+    -> Common DDL Commands:
+      1)CREATE: Creates a new table, database, view, index, or other objects.
+                  CREATE TABLE employees (
+                  id INT PRIMARY KEY,
+                  name VARCHAR(100),
+                  hire_date DATE
+                  );
+      2)ALTER: Modifies the structure of an existing object.
+                   ALTER TABLE employees ADD COLUMN salary DECIMAL(10,2);
+
+      3)DROP: Deletes an object (like a table or database).
+              DROP TABLE employees;
+      4)TRUNCATE: Removes all records from a table but keeps the structure.
+                  TRUNCATE TABLE employees;
+2. DML (Data Manipulation Language):-
+
+   DML commands are used to manipulate data stored in tables.
+
+    ->Common DML Commands:
+      1)SELECT: Retrieves data.
+                       SELECT * FROM employees;
+     2)INSERT: Adds new data.
+                 INSERT INTO employees (id, name, hire_date) VALUES (1, 'Alice', '2023-01-15');
+     3)UPDATE: Modifies existing data.
+                UPDATE employees SET salary = 60000 WHERE id = 1;
+     4)DELETE: Removes data.
+                  DELETE FROM employees WHERE id = 1;
+     5)call: CALL function (or more accurately, the CALL statement) is used to invoke a stored procedure.
+                    CALL GetEmployeesByDept(3);
+
+3. DCL (Data Control Language):-
+     
+       DCL commands control access to data and permissions in the database.
+
+       ->Common DCL Commands:
+        1)GRANT: Gives privileges to users.
+             GRANT SELECT, INSERT ON employees TO 'user1'@'localhost';
+
+       2)REVOKE: Removes privileges from users.
+                   REVOKE INSERT ON employees FROM 'user1'@'localhost';
+
+
+
+
+12)What is the role of the MySQL JOIN clause in a query, and what are some
+common types of joins?
+
+ANS:- The JOIN clause in MySQL is used to combine rows from two or more tables based on a related column between them (usually a primary key in one table and a foreign key in another).
+
+✅ Purpose: It allows you to retrieve data that is spread across multiple tables in a relational database by linking them logically.
+
+ 🔹 Common Types of Joins in MySQL
+       
+        1.INNER JOIN:Returns only rows that have matching values in both tables.
+                  
+         2. LEFT JOIN (or LEFT OUTER JOIN):-
+                                  Returns all rows from the left table, and matched rows from the right table. If there’s no match, the result is NULL on the right side.
+
+        3. RIGHT JOIN (or RIGHT OUTER JOIN):-
+                               Returns all rows from the right table, and matched rows from the left table. If there’s no match, the result is NULL on the left side.
+        4. FULL JOIN (or FULL OUTER JOIN) 🚫 Not directly supported in MySQL
+Combines results of both LEFT JOIN and RIGHT JOIN.
+
+        5. CROSS JOIN:-
+                    Produces a Cartesian product — all possible combinations of rows from the two tables.
+
+
